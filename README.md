@@ -83,3 +83,21 @@ cd frontend
 npm install
 npm run dev
 ```
+
+## Deployment
+
+Recommended split deployment:
+
+- frontend: Vercel or Render Static Site
+- backend: Render Web Service
+
+Important notes:
+
+- set `VITE_API_BASE_URL` in the frontend deployment to your backend URL
+- the hosted backend can run the trained liquid model from `models/liquid_model_training/best_liquid_model.pt`
+- the solid ALIGNN path still depends on the heavier ALIGNN runtime and Materials Project access; without that runtime, hosted solid predictions fall back to the dataset path
+
+This repo includes:
+
+- [render.yaml](./render.yaml) for Render deployment
+- [frontend/.env.example](./frontend/.env.example) showing the frontend API variable
